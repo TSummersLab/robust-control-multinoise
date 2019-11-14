@@ -103,7 +103,7 @@ def algo1(A, B, Aa, Q, R, theta):
     return K, eta
 
 
-# Algorithm 2: Robustness via mean-square stability of an auxiliary system
+# Algorithm 2: Robustness via mean-square stability of an auxiliary system with scaled dynamics
 def algo2(A,B,Aa,Q,R,eta_bar):
 
     def calc_control(y):
@@ -167,10 +167,8 @@ def system_example():
 
 
 if __name__ == "__main__":
-    # Define the true and assumed dynamics and LQR costs
+    # Define the true and nominal dynamics and LQR costs
     n, m, A_true, B_true, Q, R, A, B = system_inverted_pendulum()
-    # n, m, A_true, B_true, Q, R, A, B = system_random()
-    # n, m, A_true, B_true, Q, R, A, B  = system_example()
 
     # Define uncertainty directions and magnitudes
     p = 1
@@ -178,6 +176,7 @@ if __name__ == "__main__":
     Ai[0, 1, 0] = 1
     eta_bar = np.ones(p)
 
+    # Compute robust optimal gains
     K1, eta1 = algo1(A, B, Ai, Q, R, eta_bar)
     K2, eta2 = algo2(A, B, Ai, Q, R, eta_bar)
 
@@ -220,7 +219,7 @@ if __name__ == "__main__":
     print("K_robust_algo1         = %s" % stablestr(specrad(A_true + mdot(B_true,K1))))
     print("K_robust_algo2         = %s" % stablestr(specrad(A_true + mdot(B_true,K2))))
     print("")
-    print("Spectral radii of assumed system, closed-loop")
+    print("Spectral radii of nominal system, closed-loop")
     print("Open-loop              = %s" % stablestr(specrad(A)))
     print("K_certainty_equivalent = %s" % stablestr(specrad(A + mdot(B_true, Kce))))
     print("K_robust_algo1         = %s" % stablestr(specrad(A + mdot(B_true,K1))))
