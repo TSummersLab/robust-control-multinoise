@@ -1,6 +1,6 @@
 # robust-control-multinoise
 
-Code to accompany the work "Robust Control Design for Linear Systemsvia Multiplicative Noise"
+Code to accompany the work "Robust Control Design for Linear Systems via Multiplicative Noise" by Gravell, Esfahani, and Summers.
 
 There is no formal installation, simply download the entire package and execute `robust.py` to run the example given in the paper.
 
