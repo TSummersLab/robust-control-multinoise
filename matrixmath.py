@@ -40,7 +40,7 @@ def kron(*args):
     else:
         return np.kron(*args)
 
-## Multi-dot
+# Multi-dot
 def mdot(*args):
     return reduce(np.dot, args)
 
@@ -59,23 +59,6 @@ def minsv(A):
 # Solves a = bx
 def solveb(a,b):
     return la.solve(b.T,a.T).T
-
-# Overload the numpy randn function so it always uses the same RandomState
-# similarly to how MATLAB works (random number generator is 'global')
-seed = 3187
-rng = np.random.RandomState(seed)
-
-def rand(*args):
-    return rng.rand(*args)
-
-def randn(*args):
-    return rng.randn(*args)
-
-def randint(*args):
-    return rng.randint(*args)
-
-def rngg():
-    return rng
 
 # Symmetric log transform
 def symlog(X,scale=1):
