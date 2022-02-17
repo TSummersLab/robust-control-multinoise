@@ -9,7 +9,7 @@ Code to accompany two papers exploring the relationship between stochastic and r
     * Run `robust.py`
 
 2. "Stochastic Stability via Robustness of Linear Systems"
-    * [IEEE Xplore (presented @ IEEE CDC 2021](https://ieeexplore.ieee.org/document/9683784)
+    * [IEEE Xplore (presented @ IEEE CDC 2021)](https://ieeexplore.ieee.org/document/9683784)
     * [UT Dallas Preprint](https://personal.utdallas.edu/~ths150130/papers/GravellSummersCDC2021.pdf)
     * Run `converse.py`
 
